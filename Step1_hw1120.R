@@ -145,3 +145,4 @@ co2_12_df
 
 # 輸出
 # write_xlsx(co2_12_df, "energy_co2_12.xlsx")
+
