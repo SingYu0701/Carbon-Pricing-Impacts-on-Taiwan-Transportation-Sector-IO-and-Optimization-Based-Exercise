@@ -76,7 +76,8 @@ The proportions of cost pass-through and profit absorption are $$τ$$ and $$1−
 
 Considering the price elasticity of final demand $$ε$$, the change in final demand can be approximated as:
 
-$$Δf_i^{demand}=f_i[(1+price_increasei)^ε−1], price_i^{increase}=C_i^{passed}/x_i$$
+$$Δf_i^{demand}=f_i[(1+price_increasei)^ε−1]$$
+$$PriceIncrease_i=\frac{C_i^{passed}}{x_i}$$
 
 This step captures the reduction in consumer demand due to carbon pricing and its **ripple effects on the supply chain via the Leontief model**.
 
