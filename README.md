@@ -1,4 +1,4 @@
-# Carbon-Pricing-Impacts-on-Taiwan-Transportation-Sector-IO-and-Optimization-Based-Exercise
+# Carbon-Pricing-Impacts-on-Taiwan-Transportation-Sector-IO-and-Optimization-Based-Exercise 
 Final report of Interindustry Economics, Dec 2025 @ NCKU Resource Engineering 
 
 ![Made with R](https://img.shields.io/badge/Made%20with-R-276DC3?logo=r&logoColor=white)
