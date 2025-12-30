@@ -9,7 +9,7 @@ io12 <- read_excel("io12_complete_n46144056.xlsx")
 co2_12 <- read_excel("energy_co2_12_n46144056.xlsx") 
 
 
-# -------- 2. 取得 12x12 中間投入矩陣 Z 與部門總產出 x、最終需求 f --------
+# -------- 取得 12x12 中間投入矩陣 Z 與部門總產出 x、最終需求 f --------
 # io12 的前欄為 "投入" 且前 12 列、前 12 欄就是中間投入
 
 io12_df <- as.data.frame(io12)
@@ -145,7 +145,7 @@ names(labour_va) <- names(surplus_va) <- names(capital_va) <- sectors
 VA_sum <- labour_va + surplus_va + capital_va
 VA_sum[VA_sum == 0] <- NA
 
-# 各部門 VA 占比
+#  VA 
 labour_share <- labour_va / VA_sum
 surplus_share <- surplus_va / VA_sum
 capital_share <- capital_va / VA_sum
@@ -188,8 +188,7 @@ run_scenario <- function(carbon_price, pass_through = 1.0, price_elasticity = NU
   delta_x_no <- L %*% delta_f_no
   delta_x_yes <- L %*% delta_f_yes
   
-  # === NEW: Value-added 分配 ===
-  # 若產業需吸收成本，依 VA 結構拆分
+  # === NEW: Value-added distributed ===
   va_labor_loss   <- labour_share  * c_absorb
   va_surplus_loss <- surplus_share * c_absorb
   va_capital_loss <- capital_share * c_absorb
@@ -316,7 +315,7 @@ all_sectors_elastic <- summ_long_ext %>%
                        dx_no = "需求不變",
                        dx_yes = "考慮需求彈性"))
 
-# 2️⃣ 作圖
+
 ggplot(all_sectors_elastic, aes(x = factor(price), y = dx, fill = type)) +
   geom_col(position = "dodge") +
   facet_grid(tau ~ sector) +          # 行：轉嫁比例 τ，列：部門
@@ -500,3 +499,4 @@ ggplot(va_long, aes(x=fct_reorder(sector, VA_loss), y=abs(VA_loss), fill=VA_type
   labs(title="各部門原始投入承擔之碳成本（線性規劃不同目標）",
        x="", y="承擔碳成本(百萬元)", fill="原始投入分類") +
   theme_bw()
+
